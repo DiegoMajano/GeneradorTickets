@@ -1,16 +1,14 @@
 import { PDFDocument } from 'pdf-lib';
 
-const modPDF = async (qrImage, setIsGenerating, setMessage, setPdf) => {
-    setIsGenerating(true);
-    
-    const filePath = '/TARJETA_ISA_2024_ACTUALIZADO[1].pdf';
+const modPDF = async (qrImage, setIsGenerating,setMessage, setPdf) => {
+    const filePath = '/Ticket.pdf';
     const existingPdf = await fetch(filePath).then((res) => res.arrayBuffer());
     
     const pdfDoc = await PDFDocument.load(existingPdf);
   
     const pages = pdfDoc.getPages();    
     const pngImage = await pdfDoc.embedPng(qrImage)
-    const pngDims = pngImage.scale(0.10)
+    const pngDims = pngImage.scale(0.4)
   
 
     const firstPage = pages[0];
@@ -19,8 +17,10 @@ const modPDF = async (qrImage, setIsGenerating, setMessage, setPdf) => {
     firstPage.drawImage(pngImage, {
       //x: firstPage.getWidth() / 2 + pngDims.width +16,
       //y: firstPage.getHeight() / 8 - 2,
-      x: firstPage.getWidth() - pngDims.width - 8,
-      y: pngDims.height + 2,
+      // x: firstPage.getWidth() - pngDims.width - 8,
+      // y: pngDims.height + 2,
+      x: firstPage.getWidth() / 2 - 5.5,
+      y: pngDims.height - 38.8,
       width: pngDims.width,
       height: pngDims.height,
     })
@@ -33,8 +33,12 @@ const modPDF = async (qrImage, setIsGenerating, setMessage, setPdf) => {
     // Abrir el PDF en una nueva ventana
     //window.open(pdfUrl, '_blank');
     setPdf(pdfUrl)
-    setIsGenerating(false);
-    setMessage('¡Generado!');
+    setMessage('¡PDF creado correctamente!')
+
+    setTimeout(() => {
+      setIsGenerating(false);
+    }, 1500);  
+
   }
 
   export default modPDF

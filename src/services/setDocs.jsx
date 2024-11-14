@@ -1,18 +1,20 @@
 import { doc, addDoc, collection } from "firebase/firestore";
 import db from "../firebase/appConfig";
+import Swal from "sweetalert2";
+
 
 const setDocs = async (info) => {
 
     try {
         await addDoc(collection(db, "infoCodes"), info)
-        /*Swal.fire({
-          title: "Producto editado",
-          text: "Se ha editado correctamente el producto",
+        Swal.fire({
+          title: "Invitado registrado",
+          text: "Se ha registrado correctamente",
           icon: "success"
-        });*/
+        });
 
     } catch (error) {
-        console.error('Error al actualizar el producto', error)
+        console.error('Error al agregar el invitado', error)
     }
 
 }
