@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { createTheme } from "@mui/material/styles";
-import EventIcon from "@mui/icons-material/Event";
 import AddHomeIcon from "@mui/icons-material/AddHome";
 import { AppProvider } from "@toolpad/core/AppProvider";
 import { DashboardLayout } from "@toolpad/core/DashboardLayout";
