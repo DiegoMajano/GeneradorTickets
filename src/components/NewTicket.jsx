@@ -129,7 +129,7 @@ export default function NewTicket() {
             ) : (
               <div className='flex flex-col gap-y-2'>
                 <h2>{message}</h2>
-                <a href={pdf} download={`ticket-${info.correo}.pdf`} hidden={!pdf}>
+                <a href={pdf} download={`ticket-${info.correo}.pdf`}>
                   <button className='w-full inline-block gap-3 place-content-evenly rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-white'>
                     <DownloadForOfflineIcon /> Descargar
                   </button>
