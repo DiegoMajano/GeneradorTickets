@@ -1,7 +1,7 @@
 import { PDFDocument } from 'pdf-lib';
 
 const modPDF = async (qrImage, setIsGenerating,setMessage, setPdf) => {
-    const filePath = '/Ticket.pdf';
+    const filePath = '/TicketPlantilla.pdf';
     const existingPdf = await fetch(filePath).then((res) => res.arrayBuffer());
     
     const pdfDoc = await PDFDocument.load(existingPdf);
