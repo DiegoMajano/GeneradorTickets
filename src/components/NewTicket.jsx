@@ -8,6 +8,7 @@ import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
+import data from '../../empresa.json'
 
 export default function NewTicket() {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -18,6 +19,8 @@ export default function NewTicket() {
   const [message, setMessage] = useState('');
   const [pdf, setPdf] = useState(null);
   const qrRef = useRef();
+
+  console.log(data);  
 
   useEffect(() => {
     getDocs(setCodes);
@@ -32,7 +35,7 @@ export default function NewTicket() {
       correlativo: codes.length + 1,
     };
     setInfo(info);
-    //setDocs(info)
+    setDocs(info)
     setShowQR(true);
   };
 
@@ -113,7 +116,6 @@ export default function NewTicket() {
               title={info.nombre}
               value={JSON.stringify(info)}
               size={64}
-              level='H'
               style={{ height: "auto", maxWidth: "100%", width: "100%" }}
               marginSize={3}
             />
