@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 .env
+Ticket.pdf
 
 # Editor directories and files
 .vscode/*
